@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Portfolio of Pabbathi Devi Akshara, CSE AIML student and aspiring software developer." />
+<title>Pabbathi Devi Akshara | Portfolio</title>
+<style>
+:root{--bg:#0a1020;--panel:#111a2e;--panel2:#16223a;--text:#edf3ff;--muted:#aab7d0;--accent:#7c9cff;--accent2:#62e5c2;--line:rgba(180,199,255,.16);--shadow:0 18px 50px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 85% 0%,#1b2c55 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(10,16,32,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;letter-spacing:.02em}.brand span{color:var(--accent2)}
+nav{display:flex;gap:22px;align-items:center}nav a{font-size:.92rem;color:var(--muted)}nav a:hover{color:var(--text)}
+.menu{display:none;background:transparent;border:1px solid var(--line);color:var(--text);padding:6px 10px;border-radius:10px}
+.hero{padding:86px 0 70px;display:grid;grid-template-columns:1.35fr .65fr;gap:55px;align-items:center;min-height:520px}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);background:rgba(124,156,255,.08);color:#c8d6ff;padding:6px 12px;border-radius:100px;font-size:.82rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 14px var(--accent2)}
+h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.04;letter-spacing:-.055em;margin:20px 0}
+.gradient{background:linear-gradient(100deg,#a9bbff,#65e8c6);color:transparent;background-clip:text}
+.lead{font-size:1.12rem;color:var(--muted);max-width:650px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{border:1px solid var(--line);padding:11px 17px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:.2s;background:var(--panel);color:var(--text)}
+.btn.primary{background:linear-gradient(120deg,#7797ff,#5ccfb6);color:#08111e;border:0;font-weight:750}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.profile-card{background:linear-gradient(145deg,rgba(124,156,255,.14),rgba(98,229,194,.05)),var(--panel);border:1px solid var(--line);border-radius:26px;padding:27px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.profile-card:before{content:"";position:absolute;width:190px;height:190px;right:-65px;top:-70px;border:1px solid rgba(124,156,255,.25);border-radius:50%;box-shadow:0 0 0 24px rgba(124,156,255,.035),0 0 0 48px rgba(124,156,255,.025)}
+.avatar{width:82px;height:82px;border-radius:23px;display:grid;place-items:center;background:linear-gradient(135deg,#91aaff,#66e7c7);color:#091322;font-weight:900;font-size:1.5rem;margin-bottom:24px}
+.profile-card h2{margin:0 0 3px;font-size:1.35rem}.muted{color:var(--muted)}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.mini{background:rgba(5,10,22,.35);border:1px solid var(--line);padding:13px;border-radius:14px}.mini strong{display:block;font-size:1.1rem}.mini small{color:var(--muted)}
+section{padding:70px 0;scroll-margin-top:78px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}h2.section-title{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.04em;margin:0} .section-head p{color:var(--muted);margin:0;max-width:480px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:23px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:rgba(124,156,255,.45)}.card h3{margin:8px 0 8px;font-size:1.12rem}.card p{margin:0;color:var(--muted)}.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:rgba(124,156,255,.12);font-size:1.2rem}
+.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.tag{border:1px solid var(--line);background:rgba(124,156,255,.07);padding:6px 11px;border-radius:9px;color:#d8e2ff;font-size:.88rem}
+.project-card{display:flex;flex-direction:column;min-height:220px}.project-card .tags{margin-top:auto;padding-top:20px}
+.timeline{border-left:1px solid rgba(124,156,255,.45);margin-left:10px;padding-left:25px}.timeline-item{position:relative;padding:0 0 8px}.timeline-item:before{content:"";position:absolute;left:-31px;top:9px;width:11px;height:11px;background:var(--accent2);border:3px solid var(--bg);border-radius:50%}
+.profile-links{display:flex;flex-wrap:wrap;gap:12px}.profile-links .btn{min-width:150px;justify-content:flex-start}
+.note{font-size:.88rem;color:var(--muted);margin-top:15px}
+.contact-box{display:flex;align-items:center;justify-content:space-between;gap:25px;background:linear-gradient(120deg,rgba(124,156,255,.14),rgba(98,229,194,.08));border:1px solid var(--line);padding:28px;border-radius:22px}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.chat-launch{position:fixed;right:22px;bottom:22px;z-index:30;border:0;border-radius:999px;padding:14px 19px;background:linear-gradient(120deg,#8ca5ff,#62e5c2);color:#08111e;font-weight:800;box-shadow:var(--shadow);cursor:pointer}
+.chat-window{position:fixed;right:22px;bottom:85px;width:min(380px,calc(100vw - 28px));height:510px;max-height:calc(100vh - 120px);z-index:30;display:none;flex-direction:column;overflow:hidden;background:#0f192b;border:1px solid var(--line);border-radius:20px;box-shadow:0 25px 80px rgba(0,0,0,.5)}
+.chat-window.open{display:flex}.chat-head{padding:16px 17px;background:#172541;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.chat-head strong{display:block}.chat-head small{color:var(--muted)}.chat-close{border:0;background:transparent;color:var(--text);font-size:1.5rem;cursor:pointer}
+.chat-messages{padding:16px;flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:11px}.bubble{max-width:90%;padding:10px 12px;border-radius:14px;font-size:.92rem;white-space:pre-wrap;overflow-wrap:anywhere}.bubble.bot{align-self:flex-start;background:#1b2942;color:#e7eeff;border-bottom-left-radius:4px}.bubble.user{align-self:flex-end;background:#718ff1;color:#071020;border-bottom-right-radius:4px}.suggestions{display:flex;gap:7px;flex-wrap:wrap;padding:0 13px 12px}.suggestions button{font-size:.78rem;border:1px solid var(--line);border-radius:100px;padding:6px 9px;background:transparent;color:var(--muted);cursor:pointer}.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chat-form input{min-width:0;flex:1;background:#0a1221;border:1px solid var(--line);border-radius:11px;padding:10px 12px;color:var(--text);outline:none}.chat-form input:focus{border-color:var(--accent)}.send{border:0;border-radius:11px;background:var(--accent2);color:#07131a;padding:0 14px;font-weight:800;cursor:pointer}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:30px;padding-top:60px}.profile-card{max-width:520px}.grid{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:9px}nav{gap:12px}}
+@media(max-width:600px){.menu{display:block}nav{display:none;position:absolute;top:71px;left:0;right:0;padding:18px 5%;background:#0d1527;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.grid{grid-template-columns:1fr}.hero{min-height:auto}.contact-box{align-items:flex-start;flex-direction:column}.chat-launch{right:14px;bottom:14px}.chat-window{right:14px;bottom:75px}.mini-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">AKSHARA<span>.</span></a>
+    <button class="menu" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    <nav id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#profiles">Profiles</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap hero" id="home">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> CSE AIML-C · Second-year student</span>
+      <h1>Hi, I'm<br><span class="gradient">Pabbathi Devi Akshara.</span></h1>
+      <p class="lead">I’m a computer science student exploring the intersection of software development, data structures, and machine learning. I enjoy learning by building practical projects and collaborating with a team.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my work ↗</a>
+        <button class="btn" id="resumeBtn">▤ View resume</button>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      <p class="note">Resume placeholder: add your resume PDF when you share it.</p>
+    </div>
+    <aside class="profile-card">
+      <div class="avatar">PA</div>
+      <h2>Pabbathi Devi Akshara</h2>
+      <div class="muted">CSE AIML-C · 2nd Year</div>
+      <div class="mini-grid">
+        <div class="mini"><strong>06</strong><small>Core skills listed</small></div>
+        <div class="mini"><strong>01</strong><small>Featured project</small></div>
+        <div class="mini"><strong>Round 2</strong><small>Hackathon progress</small></div>
+        <div class="mini"><strong>AI/ML</strong><small>Area of interest</small></div>
+      </div>
+    </aside>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">A little about me</h2><p>Curious by nature, practical in approach, and always ready to learn something new.</p></div>
+      <div class="card"><p>I'm Pabbathi Devi Akshara, a second-year CSE AIML-C student. My current focus is strengthening my programming fundamentals, problem-solving skills, and understanding of how software systems are built. I’m interested in web development, data structures and algorithms, and machine learning.</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Technical skills</h2><p>The tools and concepts I’m building my foundation with.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">C</div><h3>C Language</h3><p>Programming fundamentals and structured problem solving.</p></article>
+        <article class="card"><div class="icon">Py</div><h3>Python</h3><p>General-purpose programming and experimentation.</p></article>
+        <article class="card"><div class="icon">⌘</div><h3>Data Structures</h3><p>Core concepts for efficient problem solving.</p></article>
+        <article class="card"><div class="icon">DB</div><h3>MongoDB</h3><p>Working with document-oriented databases.</p></article>
+        <article class="card"><div class="icon">GH</div><h3>GitHub Basics</h3><p>Version control workflows and project collaboration basics.</p></article>
+        <article class="card"><div class="icon">SQL</div><h3>SQL</h3><p>Querying and managing relational data.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Featured project</h2><p>A practical project that reflects my interest in backend development.</p></div>
+      <article class="card project-card">
+        <div class="icon">⌘</div><h3>Course Enrollment System</h3>
+        <p>A backend application project focused on the course-enrollment workflow. This project helped me explore application logic and how backend components support a system.</p>
+        <div class="tags"><span class="tag">Backend Development</span><span class="tag">Application Logic</span><span class="tag">Database Concepts</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Technical interests</h2><p>Topics I’m excited to explore more deeply.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">⌘</div><h3>Web Development</h3><p>Creating useful, responsive experiences for people on the web.</p></article>
+        <article class="card"><div class="icon">↗</div><h3>DSA</h3><p>Improving algorithmic thinking and writing efficient solutions.</p></article>
+        <article class="card"><div class="icon">✳</div><h3>Machine Learning</h3><p>Learning how data-driven models can solve real-world problems.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Experience</h2><p>Teamwork, learning, and building under a challenge.</p></div>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item"><h3>Backend Application Development Hackathon</h3><p class="muted">Team Lead · Advanced to Round 2</p><p>I led a team during a backend application development hackathon. We collaborated on the project and progressed to the second round, gaining experience in teamwork, planning, and development.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="profiles">
+    <div class="wrap">
+      <div class="section-head"><h2 class="section-title">Coding profiles & GitHub</h2><p>Links will be added here when you share them.</p></div>
+      <div class="profile-links">
+        <a class="btn" href="#" data-placeholder-link="github">⌁ GitHub <span class="muted">· Add link later</span></a>
+        <a class="btn" href="#" data-placeholder-link="coding">⌘ Coding profiles <span class="muted">· Add links later</span></a>
+      </div>
+      <p class="note">These are placeholders for now. Share your profile URLs later and they can be inserted into the website.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box">
+        <div><h2 class="section-title">Let’s connect.</h2><p class="muted">Interested in technology, collaboration, and learning through projects.</p></div>
+        <button class="btn primary" id="chatContactBtn">Ask my portfolio chatbot ↗</button>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><span>© <span id="year"></span> Pabbathi Devi Akshara</span><span>Built with HTML, CSS & JavaScript</span></div></footer>
+
+<button class="chat-launch" id="chatLaunch" aria-label="Open portfolio chatbot">✦ Ask Akshara AI</button>
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="Portfolio chatbot" aria-modal="false">
+  <div class="chat-head"><div><strong>Akshara's Portfolio AI</strong><small>Answers based on this portfolio</small></div><button class="chat-close" id="chatClose" aria-label="Close chatbot">×</button></div>
+  <div class="chat-messages" id="chatMessages" aria-live="polite">
+    <div class="bubble bot">Hi! I can answer questions about Akshara’s skills, project, interests, hackathon experience, and profile links. What would you like to know?</div>
+  </div>
+  <div class="suggestions">
+    <button data-question="What skills does Akshara have?">Skills</button>
+    <button data-question="Tell me about her project">Project</button>
+    <button data-question="What experience does she have?">Experience</button>
+    <button data-question="Show me her resume">Resume</button>
+  </div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Ask about Akshara…" autocomplete="off" aria-label="Ask a question" required/><button class="send" type="submit">Send</button></form>
+</div>
+
+<script>
+const profile = {
+  name: "Pabbathi Devi Akshara",
+  education: "CSE AIML-C, 2nd year",
+  skills: ["C language", "Python", "Data Structures", "MongoDB", "GitHub Basics", "SQL"],
+  project: "Course Enrollment System backend application",
+  interests: ["Web development", "DSA", "Machine learning"],
+  experience: "Led a team in a backend application development hackathon and made it to Round 2.",
+  github: null,
+  codingProfiles: null,
+  resume: null
+};
+
+const chatWindow = document.getElementById("chatWindow");
+const chatMessages = document.getElementById("chatMessages");
+const chatInput = document.getElementById("chatInput");
+function openChat(){chatWindow.classList.add("open");chatInput.focus();}
+function closeChat(){chatWindow.classList.remove("open");}
+document.getElementById("chatLaunch").addEventListener("click",openChat);
+document.getElementById("chatClose").addEventListener("click",closeChat);
+document.getElementById("chatContactBtn").addEventListener("click",openChat);
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("open"));
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open")));
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function addBubble(text,who){const div=document.createElement("div");div.className="bubble "+who;div.textContent=text;chatMessages.appendChild(div);chatMessages.scrollTop=chatMessages.scrollHeight;}
+function answerQuestion(raw){
+  const q=raw.toLowerCase();
+  if(/hello|hi\b|hey\b|good morning|good evening/.test(q)) return `Hi! I'm Akshara's portfolio assistant. Ask me about ${profile.name}'s skills, project, interests, experience, GitHub, coding profiles, or resume.`;
+  if(/resume|cv/.test(q)) return profile.resume ? "You can view Akshara's resume using the View Resume button on the website." : "Akshara's resume will be available here once she adds the PDF. For now, use the View Resume button to see the placeholder notice.";
+  if(/github|git hub/.test(q)) return profile.github ? `Akshara's GitHub profile: ${profile.github}` : "Akshara's GitHub link hasn't been added yet. She plans to share it later.";
+  if(/coding profile|leetcode|codechef|hackerrank|geeksforgeeks|gfg|coding platform/.test(q)) return profile.codingProfiles ? `Akshara's coding profiles: ${profile.codingProfiles}` : "Akshara's coding profile links haven't been added yet. They'll be updated when she shares them.";
+  if(/skill|technology|technologies|programming language|know|tech stack/.test(q)) return `Akshara's listed skills are: ${profile.skills.join(", ")}.`;
+  if(/project|built|develop|application|course enrollment/.test(q)) return `Akshara's featured project is the ${profile.project}.`;
+  if(/interest|passion|like to learn|focus/.test(q)) return `Akshara's technical interests are: ${profile.interests.join(", ")}.`;
+  if(/experience|hackathon|team lead|round 2|round two/.test(q)) return `Akshara ${profile.experience.charAt(0).toLowerCase()+profile.experience.slice(1)}`;
+  if(/education|college|year|branch|department|study|student/.test(q)) return `Akshara is a ${profile.education} student.`;
+  if(/who is|about akshara|tell me about|introduce/.test(q)) return `${profile.name} is a ${profile.education} student interested in ${profile.interests.join(", ")}. Her featured project is a ${profile.project}.`;
+  if(/contact|email|phone/.test(q)) return "Contact details haven't been added to this portfolio yet.";
+  return "I can answer questions using the information on this portfolio. Try asking about Akshara's skills, Course Enrollment System project, technical interests, hackathon experience, education, GitHub, coding profiles, or resume.";
+}
+document.getElementById("chatForm").addEventListener("submit",e=>{e.preventDefault();const q=chatInput.value.trim();if(!q)return;addBubble(q,"user");chatInput.value="";setTimeout(()=>addBubble(answerQuestion(q),"bot"),120);});
+document.querySelectorAll(".suggestions button").forEach(btn=>btn.addEventListener("click",()=>{const q=btn.dataset.question;addBubble(q,"user");setTimeout(()=>addBubble(answerQuestion(q),"bot"),120);}));
+document.getElementById("resumeBtn").addEventListener("click",()=>{if(profile.resume){window.open(profile.resume,"_blank","noopener");}else{alert("Resume PDF not added yet. Send your resume later and this button will open it.");}});
+document.querySelectorAll("[data-placeholder-link]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();alert("This profile link is a placeholder. Share the URL later to update it.");}));
+</script>
+</body>
+</html>
