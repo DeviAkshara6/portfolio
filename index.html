@@ -140,15 +140,46 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   </section>
 
   <section id="profiles">
-    <div class="wrap">
-      <div class="section-head"><h2 class="section-title">Coding profiles & GitHub</h2><p>Links will be added here when you share them.</p></div>
-      <div class="profile-links">
-        <a class="btn" href="#" data-placeholder-link="github">⌁ GitHub <span class="muted">· Add link later</span></a>
-        <a class="btn" href="#" data-placeholder-link="coding">⌘ Coding profiles <span class="muted">· Add links later</span></a>
-      </div>
-      <p class="note">These are placeholders for now. Share your profile URLs later and they can be inserted into the website.</p>
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Coding Profiles & GitHub</h2>
+      <p>Explore my projects, coding practice, and professional profile.</p>
     </div>
-  </section>
+
+    <div class="profile-links">
+
+      <!-- GitHub Profile -->
+      <a class="btn"
+         href="https://github.com/DeviAkshara6"
+         target="_blank"
+         rel="noopener noreferrer">
+        ⌁ GitHub
+      </a>
+
+      <!-- CodeChef Profile -->
+      <a class="btn"
+         href="https://www.codechef.com/users/brill_card_61"
+         target="_blank"
+         rel="noopener noreferrer">
+        💻 CodeChef
+      </a>
+
+      <!-- LinkedIn Profile -->
+      <a class="btn"
+         href="https://www.linkedin.com/in/devi-akshara-pabbathi-a8b403381/"
+         target="_blank"
+         rel="noopener noreferrer">
+        💼 LinkedIn
+      </a>
+
+    </div>
+
+    <p class="note">
+      Connect with me on LinkedIn, explore my projects on GitHub,
+      and check out my coding journey on CodeChef.
+    </p>
+  </div>
+</section>
 
   <section id="contact">
     <div class="wrap">
@@ -167,27 +198,74 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
   <div class="chat-messages" id="chatMessages" aria-live="polite">
     <div class="bubble bot">Hi! I can answer questions about Akshara’s skills, project, interests, hackathon experience, and profile links. What would you like to know?</div>
   </div>
-  <div class="suggestions">
-    <button data-question="What skills does Akshara have?">Skills</button>
-    <button data-question="Tell me about her project">Project</button>
-    <button data-question="What experience does she have?">Experience</button>
-    <button data-question="Show me her resume">Resume</button>
-  </div>
+  
+<div class="suggestions">
+  <button type="button" data-question="Tell me about Akshara">About</button>
+  <button type="button" data-question="What skills does Akshara have?">Skills</button>
+  <button type="button" data-question="Tell me about her projects">Projects</button>
+  <button type="button" data-question="Show me her resume">Resume</button>
+  <button type="button" data-question="Show me her GitHub profile">GitHub</button>
+  <button type="button" data-question="Show me her CodeChef profile">CodeChef</button>
+</div>
+
+
   <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Ask about Akshara…" autocomplete="off" aria-label="Ask a question" required/><button class="send" type="submit">Send</button></form>
 </div>
 
 <script>
 const profile = {
   name: "Pabbathi Devi Akshara",
-  education: "CSE AIML-C, 2nd year",
-  skills: ["C language", "Python", "Data Structures", "MongoDB", "GitHub Basics", "SQL"],
-  project: "Course Enrollment System backend application",
-  interests: ["Web development", "DSA", "Machine learning"],
-  experience: "Led a team in a backend application development hackathon and made it to Round 2.",
-  github: null,
-  codingProfiles: null,
-  resume: null
+  education: "B.Tech CSE-AIML, 2nd year at VNR VJIET",
+
+  skills: [
+    "C",
+    "Python",
+    "Data Structures",
+    "Java basics",
+    "SQL",
+    "MongoDB",
+    "Node.js",
+    "Express.js",
+    "Git",
+    "GitHub",
+    "HTML",
+    "CSS",
+    "JavaScript basics"
+  ],
+
+  projects: [
+    {
+      name: "Course Enrollment System",
+      description: "A backend application built using Node.js, Express.js, MongoDB, JWT authentication, and bcryptjs."
+    },
+    {
+      name: "Cloud Resource Allocation and Scheduling Simulator",
+      description: "An operating systems project that simulates memory allocation strategies and FCFS task scheduling using Streamlit."
+    }
+  ],
+
+  interests: [
+    "Web development",
+    "Data Structures and Algorithms",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Backend development"
+  ],
+
+  experience: "Led a team in a college hackathon and reached Round 2.",
+
+  github: "https://github.com/DeviAkshara6",
+
+  codechef: "https://www.codechef.com/users/brill_card_61",
+
+  linkedin: "https://www.linkedin.com/in/devi-akshara-pabbathi-a8b403381/",
+
+  resume: "assets/resume.pdf",
+
+  certification: "Introduction to Generative AI - IBM SkillsBuild"
 };
+
+
 
 const chatWindow = document.getElementById("chatWindow");
 const chatMessages = document.getElementById("chatMessages");
@@ -201,25 +279,95 @@ document.getElementById("menuBtn").addEventListener("click",()=>document.getElem
 document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open")));
 document.getElementById("year").textContent = new Date().getFullYear();
 
-function addBubble(text,who){const div=document.createElement("div");div.className="bubble "+who;div.textContent=text;chatMessages.appendChild(div);chatMessages.scrollTop=chatMessages.scrollHeight;}
-function answerQuestion(raw){
-  const q=raw.toLowerCase();
-  if(/hello|hi\b|hey\b|good morning|good evening/.test(q)) return `Hi! I'm Akshara's portfolio assistant. Ask me about ${profile.name}'s skills, project, interests, experience, GitHub, coding profiles, or resume.`;
-  if(/resume|cv/.test(q)) return profile.resume ? "You can view Akshara's resume using the View Resume button on the website." : "Akshara's resume will be available here once she adds the PDF. For now, use the View Resume button to see the placeholder notice.";
-  if(/github|git hub/.test(q)) return profile.github ? `Akshara's GitHub profile: ${profile.github}` : "Akshara's GitHub link hasn't been added yet. She plans to share it later.";
-  if(/coding profile|leetcode|codechef|hackerrank|geeksforgeeks|gfg|coding platform/.test(q)) return profile.codingProfiles ? `Akshara's coding profiles: ${profile.codingProfiles}` : "Akshara's coding profile links haven't been added yet. They'll be updated when she shares them.";
-  if(/skill|technology|technologies|programming language|know|tech stack/.test(q)) return `Akshara's listed skills are: ${profile.skills.join(", ")}.`;
-  if(/project|built|develop|application|course enrollment/.test(q)) return `Akshara's featured project is the ${profile.project}.`;
-  if(/interest|passion|like to learn|focus/.test(q)) return `Akshara's technical interests are: ${profile.interests.join(", ")}.`;
-  if(/experience|hackathon|team lead|round 2|round two/.test(q)) return `Akshara ${profile.experience.charAt(0).toLowerCase()+profile.experience.slice(1)}`;
-  if(/education|college|year|branch|department|study|student/.test(q)) return `Akshara is a ${profile.education} student.`;
-  if(/who is|about akshara|tell me about|introduce/.test(q)) return `${profile.name} is a ${profile.education} student interested in ${profile.interests.join(", ")}. Her featured project is a ${profile.project}.`;
-  if(/contact|email|phone/.test(q)) return "Contact details haven't been added to this portfolio yet.";
-  return "I can answer questions using the information on this portfolio. Try asking about Akshara's skills, Course Enrollment System project, technical interests, hackathon experience, education, GitHub, coding profiles, or resume.";
+function addBubble(text,who){const div=document.createElement("div");div.className="bubble "+who;div.innerHTML = text;chatMessages.appendChild(div);chatMessages.scrollTop=chatMessages.scrollHeight;}
+function answerQuestion(raw) {
+  const q = raw.toLowerCase();
+
+  // Greetings
+  if (/\b(hello|hi|hey)\b/.test(q)) {
+    return `Hi! Welcome to ${profile.name}'s portfolio. Ask me about her skills, projects, education, experience, or profiles!`;
+  }
+
+  // About
+  if (/project|built|developed/.test(q)) {
+  return "Akshara's projects:\n\n" +
+    profile.projects.map((p, i) =>
+      `${i + 1}. ${p.name}\n${p.description}`
+    ).join("\n\n");
+}
+
+if (/about|who is|introduce/.test(q)) {
+  return `${profile.name} is a ${profile.education} student interested in ${profile.interests.join(", ")}.`;
+}
+
+  // Resume
+  if (/resume|cv/.test(q)) {
+    
+  return `<a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">Click here to view Akshara's resume</a>`;
+
+  }
+
+  // GitHub
+  if (/github|git hub/.test(q)) {
+    return `Explore Akshara's GitHub profile: ${profile.github}`;
+  }
+
+  // CodeChef
+  if (/codechef|coding profile|coding platform/.test(q)) {
+    return `Visit Akshara's CodeChef profile: ${profile.codechef}`;
+  }
+
+  // LinkedIn
+  if (/linkedin/.test(q)) {
+    return `Connect with Akshara on LinkedIn: ${profile.linkedin}`;
+  }
+
+  // Skills
+  if (/skill|technology|tech stack|programming language/.test(q)) {
+    return `Akshara's listed skills include: ${profile.skills.join(", ")}.`;
+  }
+
+  // Projects
+  if (/project|projects|built|developed/.test(q)) {
+    return "Akshara's projects:\n\n" +
+      profile.projects.map((p, i) =>
+        `${i + 1}. ${p.name}\n${p.description}`
+      ).join("\n\n");
+  }
+
+  // Experience
+  if (/experience|hackathon|team lead|team leader/.test(q)) {
+    return profile.experience;
+  }
+
+  // Education
+  if (/education|college|degree|student|study|branch/.test(q)) {
+    return `Akshara is pursuing ${profile.education}.`;
+  }
+
+  // Interests
+  if (/interest|passion|career goal|machine learning|artificial intelligence/.test(q)) {
+    return `Akshara's technical interests include: ${profile.interests.join(", ")}.`;
+  }
+
+  // Certification
+  if (/certification|certificate|ibm|generative ai/.test(q)) {
+    return `Akshara's certification is ${profile.certification}. Visit her LinkedIn profile for certificate information: ${profile.linkedin}`;
+  }
+
+  // Contact
+  if (/contact|email|phone/.test(q)) {
+    return `You can connect with Akshara through LinkedIn: ${profile.linkedin}`;
+  }
+
+  // Default response
+  return "Sorry, I don't know the answer to that yet. Try asking about Akshara's skills, projects, education, experience, resume, GitHub, CodeChef, or LinkedIn.";
 }
 document.getElementById("chatForm").addEventListener("submit",e=>{e.preventDefault();const q=chatInput.value.trim();if(!q)return;addBubble(q,"user");chatInput.value="";setTimeout(()=>addBubble(answerQuestion(q),"bot"),120);});
 document.querySelectorAll(".suggestions button").forEach(btn=>btn.addEventListener("click",()=>{const q=btn.dataset.question;addBubble(q,"user");setTimeout(()=>addBubble(answerQuestion(q),"bot"),120);}));
-document.getElementById("resumeBtn").addEventListener("click",()=>{if(profile.resume){window.open(profile.resume,"_blank","noopener");}else{alert("Resume PDF not added yet. Send your resume later and this button will open it.");}});
+document.getElementById("resumeBtn").addEventListener("click", () => {
+  window.open(profile.resume, "_blank", "noopener,noreferrer");
+});
 document.querySelectorAll("[data-placeholder-link]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();alert("This profile link is a placeholder. Share the URL later to update it.");}));
 </script>
 </body>
